@@ -26,22 +26,306 @@
 \maketitle
 \tableofcontents
 
+\newcommand{\Lagr}{\mathcal{L}}
+
 \section{8.2.3}
+
+Chebyshev:
+\[(1-x^2)y''-xy'+n^2y=0\]
+
+Operator:
+\[\Lagr(x)=P_0(x)\frac{d^2}{dx^2}+P_1(x)\frac{d}{dx}+P_2(x)\]
+
+Self-adjoint Condition:
+\[P_0'(x) = P_1(x)\]
+
+Weighting Function:
+\[w(x)={(1-x^2)}^{-\frac{1}{2}}\]
+
+$\text{Chebyshev}*w(x)$:
+\[
+    {(1-x^2)}^{\frac{1}{2}}y''-x{(1-x^2)}^{-\frac{1}{2}}y'+n^2{(1-x^2)}^{-\frac{1}{2}}y=0
+\]
+
+\[
+    P_0(x)={(1-x^2)}^{\frac{1}{2}}
+\]
+
+\[
+    P_0'(x)= -x{(1-x^2)}^{-\frac{1}{2}}
+\]
+
+\[
+    P_1(x)= -x{(1-x^2)}^{-\frac{1}{2}}
+\]
+
+We can since that Self-adjoint Condition holds.
 
 \newpage
 \section{8.2.5}
 
+Given:
+
+\[
+    \Lagr u_1(x) = \lambda_1 u_1(x)
+\]
+
+\[
+    \Lagr u_2(x) = \lambda_2 u_2(x)
+\]
+
+\[
+    \lambda_1 \neq \lambda_2 \tag{1}
+\]
+
+To prove:
+
+\[
+    u_1(x) \neq \alpha u_2(x)
+\]
+
+Prove by contradiction:
+
+\[
+    Let\quad u_1(x) = \alpha u_2(x) \tag{2}
+\]
+
+\[
+    \therefore \Lagr u_1(x) = \alpha \Lagr u_2(x) = \alpha \lambda_2 u_2(x) = \lambda_1 u_1(x)
+\]
+
+\[
+    \therefore u_1(x) = \frac{\lambda_2}{\lambda_1} \alpha u_2(x)
+\]
+
+In order to satisfy (2) $\lambda_1 \overset{!}{=} \lambda_2$ which contradicts (1).
+
 \newpage
 \section{8.2.7}
+
+\[
+    \int^1_{-1} T^*_0(x) V_1(x) w(x)\, dx
+\]
+
+\[
+    \int^1_{-1} {(1-x^2)}^{\frac{1}{2}} {(1-x^2)}^{-\frac{1}{2}}\, dx = \int^1_{-1} dx = 2
+\]
+
+Since the result of the integral is not zero, therefore $T_0$ and $V_1$ are not orthogonal on the range $(-1, 1)$ with the weighting function ${(1-x^2)}^{-\frac{1}{2}}$.
 
 \newpage
 \section{8.2.8}
 
+Given:
+
+\[
+    \frac{d}{dx}\left[P(x)\frac{d}{dx}u_n(x)\right]+\lambda_n w(x)u_n(x)=0
+\]
+
+\[
+    \Lagr u_m(x) = \lambda_m u_m(x)
+\]
+
+\[
+    \Lagr u_n(x) = \lambda_n u_n(x)
+\]
+
+\[
+    \lambda_1 \neq \lambda_2
+\]
+
+\[
+    \int_a^b w(x)u_m^*(x) u_n(x)\, dx = 0
+\]
+
+To Prove:
+
+\[
+    \int_{a'}^{b'} {u_m'}^*(x) u_n'(x) P(x)\, dx = 0
+\]
+
+Solution:
+
+\[
+    \frac{d}{dx}\left[P(x) u_n'(x)\right]+\lambda_n w(x)u_n(x)=0
+\]
+
+
+\[
+    \int_{a}^{b} u_m^*(x)\frac{d}{dx}\left[P(x) u_n'(x)\right]\, dx + \lambda_n \int_{a}^{b} w(x)u_m^*(x)u_n(x)\, dx = 0
+\]
+
+\[
+    \int_{a}^{b} u_m^*(x)\frac{d}{dx}\left[P(x) u_n'(x)\right]\, dx = 0
+\]
+
+\[
+    \int_{a}^{b}P(x) u_n'(x)\frac{d}{dx}\left[ u_m^*(x)\right]\, dx = P(x) u_n'(x)u_m^*(x)
+\]
+
+\[
+    \int_{a}^{b}P(x) u_n'(x) {u_m'}^*(x) \, dx = {\left[P(x) u_n'(x)u_m^*(x)\right]}_a^b
+\]
+
+Under this boundary condition:
+
+\[
+    {\left[P(x) u_n'(x)u_m^*(x)\right]}_a^b = 0
+\]
+
+Dot product of $u_n'(x)$ and $u_m'$ lead to orthogonality under the weighting function $P(x)$
+
 \newpage
 \section{8.3.4}
 
+Given:
+
+\[x L^{''}_n(x) + (1-x) L^{'}_n(x) + n L_n(x) = 0\]
+
+Let:
+
+\[L_n(x)=\sum_{j = 0}^{\infty} a_j^{(n)} x^{s+j} \]
+
+Therefore:
+
+\[L^{'}_n(x)=\sum_{j = 0}^{\infty} (s+j)a_j^{(n)} x^{s+j-1} \]
+\[L^{''}_n(x)=\sum_{j = 0}^{\infty} (s+j)(s+j-1)a_j^{(n)} x^{s+j-2} \]
+
+\[x \sum_{j = 0}^{\infty} (s+j)(s+j-1)a_j^{(n)} x^{s+j-2} + (1-x) \sum_{j = 0}^{\infty} (s+j)a_j^{(n)} x^{s+j-1} + n \sum_{j = 0}^{\infty} a_j^{(n)} x^{s+j} = 0\]
+
+\[\sum_{j = 0}^{\infty} (s+j)(s+j-1)a_j^{(n)} x^{s+j-1} + \sum_{j = 0}^{\infty} (s+j)a_j^{(n)} x^{s+j-1} - \sum_{j = 0}^{\infty} (s+j)a_j^{(n)} x^{s+j} + \sum_{j = 0}^{\infty} n a_j^{(n)} x^{s+j} = 0\]
+
+\[\sum_{j = 0}^{\infty} a_j^{(n)} {(s+j)}^2 x^{s+j-1} - \sum_{j = 0}^{\infty} a_j^{(n)} (s+j-n) x^{s+j} = 0\]
+
+\[\sum_{j = -1}^{\infty} a_{j+1}^{(n)} {(s+j+1)}^2 x^{s+j} - \sum_{j = 0}^{\infty} a_j^{(n)} (s+j-n) x^{s+j} = 0\]
+
+\[a_{0}^{(n)} s^2 x^{s-1} + \sum_{j = 0}^{\infty} a_{j+1}^{(n)} {(s+j+1)}^2 x^{s+j} - \sum_{j = 0}^{\infty} a_j^{(n)} (s+j-n) x^{s+j} = 0\]
+
+\[a_{0}^{(n)} s^2 x^{s-1} +  x^{s} \sum_{j = 0}^{\infty} (a_{j+1}^{(n)} {(s+j+1)}^2 - a_j^{(n)} (s+j-n)) x^{j} = 0\]
+\[a_{0}^{(n)} s^2 + \sum_{j = 0}^{\infty} \left(a_{j+1}^{(n)} {(s+j+1)}^2 - a_j^{(n)} (s+j-n)\right) x^{j + 1} = 0\]
+
+We need to make the summation be always zero regardless of x so the constant term must be zero.
+
+Therefore $a_{0}^{(n)}$ or $s^2$ must be zero.
+
+\[\sum_{j = 0}^{\infty} \left(a_{j+1}^{(n)} {(s+j+1)}^2 - a_j^{(n)} (s+j-n)\right) x^{j + 1} = 0\]
+
+For the same reason
+
+\[a_{j+1}^{(n)} {(s+j+1)}^2 - a_j^{(n)} (s+j-n) = 0\]
+
+\[a_{j+1}^{(n)} = \frac{s+j-n}{{(s+j+1)}^2}a_j^{(n)}\]
+
+From this we can't set $a_0 = 0$ because all subsequent $a_j$ must be zero as well making the solution a trivial one.
+
+Therefore s must be zero.
+
+\[a_{j+1}^{(n)} = \frac{j-n}{{(j+1)}^2}a_j^{(n)}\]
+
+Where j starts from 0.
+
+For the series to be finite the parameter n must be a positive integer.
+
+and the polynomial solution will be of order n.
+
 \newpage
 \section{8.3.6}
+
+Given:
+
+\[(1-x^2) U^{''}_n(x) - 3x U^{'}_n(x) + n(n+2) U_n(x) = 0\]
+
+Let:
+
+\[U_n(x)=\sum_{j = 0}^{\infty} {a_j^{(n)} x^{s+j}} \]
+
+Therefore:
+
+\[U^{'}_n(x)=\sum_{j = 0}^{\infty} (s+j)a_j^{(n)} x^{s+j-1} \]
+\[U^{''}_n(x)=\sum_{j = 0}^{\infty} (s+j)(s+j-1)a_j^{(n)} x^{s+j-2} \]
+
+\[(1-x^2) \sum_{j = 0}^{\infty} (s+j)(s+j-1)a_j^{(n)} x^{s+j-2} - 3x \sum_{j = 0}^{\infty} (s+j)a_j^{(n)} x^{s+j-1} + n(n+2) \sum_{j = 0}^{\infty} a_j^{(n)} x^{s+j} = 0\]
+
+\begin{multline*}
+    \sum_{j = 0}^{\infty} (s+j)(s+j-1)a_j^{(n)} x^{s+j-2} - \sum_{j = 0}^{\infty} (s+j)(s+j-1)a_j^{(n)} x^{s+j} \\
+    - \sum_{j = 0}^{\infty} 3(s+j)a_j^{(n)} x^{s+j} + \sum_{j = 0}^{\infty} n(n+2) a_j^{(n)} x^{s+j} = 0
+\end{multline*}
+
+\[
+    \sum_{j = 0}^{\infty} (s+j)(s+j-1)a_j^{(n)} x^{s+j-2}
+    + \sum_{j = 0}^{\infty} \left(n(n+2)  - (s+j)(s+j+2)\right)a_j^{(n)} x^{s+j} = 0
+\]
+
+\[
+    \sum_{j = -2}^{\infty} (s+j+2)(s+j+1)a_{j + 2}^{(n)} x^{s+j}
+    + \sum_{j = 0}^{\infty} \left(n(n+2)  - (s+j)(s+j+2)\right)a_j^{(n)} x^{s+j} = 0
+\]
+
+\begin{multline*}
+    s(s-1) a_0^{(n)} x^{s-2} + s(s+1) a_1^{(n)} x^{s-1}
+    + \sum_{j = 0}^{\infty} (s+j+2)(s+j+1)a_{j+2}^{(n)} x^{s+j} \\
+    + \sum_{j = 0}^{\infty} \left(n(n+2)  - (s+j)(s+j+2)\right)a_j^{(n)} x^{s+j} = 0
+\end{multline*}
+
+\begin{multline*}
+    s(s-1) a_0^{(n)} x^{s-2} + s(s+1) a_1^{(n)} x^{s-1} + \\
+    \sum_{j = 0}^{\infty} \left((s+j+2)(s+j+1)a_{j+2}^{(n)}
+    + \left(n(n+2)  - (s+j)(s+j+2)\right)a_j^{(n)}\right) x^{s+j} = 0
+\end{multline*}
+
+Similar to last question we figure that:
+
+\[
+    s(s-1) a_0^{(n)} = 0
+\]
+
+\[
+    s(s+1) a_1^{(n)} = 0
+\]
+
+\[
+    a_{j+2}^{(n)} = \frac{(s+j+2)(s+j) - n(n+2)}{(s+j+1)(s+j+2)}a_j^{(n)}
+\]
+
+% \[
+%     a_{j+2}^{(n)} = \frac{j(j+2) - n(n+2)}{(j+1)(j+2)}a_j^{(n)}
+% \]
+
+% n = j
+
+% n is even
+
+% \[
+%     a_{j+2}^{(n)} = \frac{(j+3)(j + 1) - n(n+2)}{(j+2)(j+3)}a_j^{(n)}
+% \]
+
+% n = j + 1
+
+% n is odd
+
+For the polynomial to be finite:
+
+\[
+    (s+j+2)(s+j) = n(n+2)
+\]
+
+So, the truncation value of j is
+
+\[
+    j = n -s
+\]
+
+Therefore $n-s$ is positive odd integer for odd solutions
+
+Choosing odd solutions means that we could set $a_0 = 0$ so s could be 0 or -1
+
+We will choose s = 0
+
+\[
+    a_{j+2}^{(n)} = \frac{j(j+2) - n(n+2)}{(j+1)(j+2)}a_j^{(n)}
+\]
+
+Where n is an odd positive number and j starts from 1
 
 \newpage
 
