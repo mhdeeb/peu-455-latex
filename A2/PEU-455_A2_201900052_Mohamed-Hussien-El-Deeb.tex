@@ -1,0 +1,393 @@
+\documentclass[12pt]{article}
+\usepackage[svgnames,x11names,table]{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage[thicklines]{cancel}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=RoyalBlue4,
+    urlcolor=RoyalBlue4,
+}
+
+\title{PEU 455 Assignment 2}
+\author{Mohamed Hussien El-Deeb (201900052)}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newcommand{\Lagr}{\mathcal{L}}
+\renewcommand{\labelenumi}{\textbf{(\alph{enumi})}}
+
+\section{8.4.1}
+
+\begin{enumerate}
+    \item
+          \[
+              \psi = 2\alpha^{\frac{3}{2}} x e^{-\alpha x}
+          \]
+          \[
+              \int_0^\infty \psi \psi* dx
+          \]
+          \[
+              = 4 \alpha^3 \int_0^\infty  x^2 e^{-2 \alpha x} dx
+          \]
+          \[
+              \begin{bmatrix}
+                  x^2 & e^{-2\alpha x}                      \\
+                  2x  & \frac{1}{-2\alpha} e^{-2\alpha x}   \\
+                  2   & \frac{1}{4\alpha^2} e^{-2\alpha x}  \\
+                  0   & \frac{1}{-8\alpha^3} e^{-2\alpha x}
+              \end{bmatrix}
+          \]
+          \[
+              = 4 \alpha^3 \left[ - \frac{x^2}{2\alpha} e^{-2\alpha x} - \frac{x}{2\alpha^2} e^{-2\alpha x} - \frac{1}{4\alpha^3} e^{-2\alpha x} \right]^\infty_0 = 1
+          \]
+          $\psi$ is normalized.
+    \item \[
+              \int_0^\infty \psi x^{-1} \psi* dx
+          \]
+          \[
+              = 4 \alpha^3 \int_0^\infty  x e^{-2 \alpha x}
+          \]
+          \[
+              = 4 \alpha^3 \int_0^\infty  x e^{-2 \alpha x}
+          \]
+          \[
+              \begin{bmatrix}
+                  x & e^{-2\alpha x}                     \\
+                  1 & \frac{1}{-2\alpha} e^{-2\alpha x}  \\
+                  0 & \frac{1}{4\alpha^2} e^{-2\alpha x} \\
+              \end{bmatrix}
+          \]
+          \[
+              4 \alpha^3 \left[x\frac{1}{-2\alpha} e^{-2\alpha x} - \frac{1}{4\alpha^2} e^{-2\alpha x} \right]_0^\infty
+              = \alpha
+          \]
+    \item
+          \[
+              \frac{d\psi}{dx} = 2\alpha^{\frac{3}{2}} \frac{d (x e^{-\alpha x})}{dx}
+              = 2 \alpha^{\frac{3}{2}} e^{-\alpha x} (1 -\alpha x )
+          \]
+          \[
+              \frac{d^2\psi}{dx^2} = 2 \alpha^{\frac{3}{2}} \frac{d(e^{-\alpha x} (1 -\alpha x ))}{dx}
+              = -2 \alpha^{\frac{3}{2}}(\alpha e^{-\alpha x} + \alpha e^{-\alpha x} (1 -\alpha x ))
+          \]
+          \[
+              = -2 \alpha^{\frac{5}{2}} e^{-\alpha x} (2 -\alpha x )
+          \]
+          \[
+              \int_0^\infty \psi* \frac{d^2\psi}{dx^2}  dx
+          \]
+          \[
+              -4 \alpha^4 \int_0^\infty x e^{-2\alpha x} (2 -\alpha x )  dx
+          \]
+          \[
+              -8 \alpha^4 \int_0^\infty x e^{-2\alpha x}  dx + 4 \alpha^5 \int_0^\infty x^2 e^{-2\alpha x} dx
+          \]
+          \[
+              \int_0^\infty x e^{-2\alpha x}  dx = \frac{1}{4\alpha^2}, \quad \int_0^\infty  x^2 e^{-2 \alpha x} dx = \frac{1}{4\alpha^3}
+          \]
+          \[
+              = -\alpha^2
+          \]
+    \item \[
+              \left\langle \psi \left| - \frac{1}{2}\frac{d^2}{dx^2} - \frac{1}{x} \right| \psi\right\rangle
+          \]
+          \[
+              = - (\frac{1}{2}\left\langle \psi \left| \frac{d^2}{dx^2} \right| \psi\right\rangle + \left\langle \psi \left| x^{-1} \right| \psi\right\rangle)
+          \]
+          \[
+              = \frac{\alpha^2}{2} - \alpha
+          \]
+          \[
+              \frac{d (\frac{\alpha^2}{2} - \alpha)}{d \alpha} = 0
+          \]
+          \[
+              \alpha = 1
+          \]
+          \[
+              \min(\left\langle \psi \left| - \frac{1}{2}\frac{d^2}{dx^2} - \frac{1}{x} \right| \psi\right\rangle) = -\frac{1}{2}
+          \]
+\end{enumerate}
+
+\newpage
+
+\section{P2}
+
+Let $\psi_\text{trial} = \psi_0(\beta)$ where $\psi_0$ is the old ground state of hydrogen atom.
+
+Where we will vary $a_0 \rightarrow \frac{a_0}{\beta}$.
+
+\[
+    \psi_\text{trial} = \sqrt{\frac{\beta^3}{\pi a_0^3}} e^{-\frac{r \beta}{a_0}}
+\]
+
+\[
+    H = - (\frac{\hbar^2}{2m} \nabla^2 + \frac{e^2}{4\pi \epsilon_0} \frac{e^{-\mu r}}{r})
+\]
+
+For a non-varying function in $\theta$ and $\phi$
+
+\[
+    \nabla^2 = \frac{1}{r^2}\frac{\partial}{\partial r}(r^2 \frac{\partial}{\partial r})
+\]
+
+\[
+    H | \psi \rangle = - \sqrt{\frac{\beta^3}{\pi a_0^3}} \left(\frac{\hbar^2}{2m r^2}\frac{d}{d r}(r^2 \frac{d}{d r}) + \frac{e^2}{4\pi \epsilon_0} \frac{e^{-\mu r}}{r}\right) e^{-\frac{r \beta}{a_0}}
+\]
+
+\[
+    = - \sqrt{\frac{\beta^3}{\pi a_0^3}} \left(\frac{\hbar^2}{2m r^2}\frac{d (r^2 \frac{d (e^{-\frac{r \beta}{a_0}})}{d r})}{d r} + \frac{e^{2 - r(\mu + \frac{\beta}{a_0})}}{4 \pi \epsilon_0 r}\right)
+\]
+
+\[
+    = - \sqrt{\frac{\beta^3}{\pi a_0^3}} \left(- \frac{\hbar^2 \beta}{2m r^2 a_0}\frac{d (r^2 e^{-\frac{r \beta}{a_0}})}{d r} + \frac{e^{2 - r(\mu + \frac{\beta}{a_0})}}{4 \pi \epsilon_0 r}\right)
+\]
+
+\[
+    = \sqrt{\frac{\beta^3}{\pi a_0^3}} e^{-\frac{r \beta}{a_0}} \left(\frac{\hbar^2 \beta}{2m r^2 a_0}(2 r - \frac{\beta r^2}{a_0}) - \frac{e^{2 - r\mu}}{4 \pi \epsilon_0 r}\right)
+\]
+
+\[
+    = \sqrt{\frac{\beta^3}{\pi a_0^3}} e^{-\frac{r \beta}{a_0}} \left(\frac{\hbar^2 \beta}{m r a_0} - \frac{\hbar^2 \beta^2}{2m a_0^2} - \frac{e^{2 - r\mu}}{4 \pi \epsilon_0 r}\right)
+\]
+
+
+
+\[
+    \left\langle \psi \left| H \right| \psi\right\rangle  = \frac{\beta^3}{\pi a_0^3} \int_0^\infty r e^{-\frac{2 r \beta}{a_0}} \left(\frac{\hbar^2 \beta}{m a_0} - \frac{e^2}{4 \pi \epsilon_0} e^{-r\mu} - \frac{\hbar^2 \beta^2}{2m a_0^2} r\right) dr
+\]
+
+\begin{equation*}
+    \begin{split}
+        \left\langle \psi \left| H \right| \psi\right\rangle & = 4\pi \frac{\beta^3}{\pi a_0^3} \int_0^\infty e^{-\frac{2 r \beta}{a_0}} \left(\frac{\hbar^2 \beta}{m r a_0} - \frac{e^2}{4 \pi \epsilon_0 r} e^{-r\mu} - \frac{\hbar^2 \beta^2}{2m a_0^2} \right)r^2 dr                                                  \\
+                                                             & = \frac{4\beta^3}{a_0^3} \int_0^\infty \left(\frac{\hbar^2 \beta}{m a_0} r e^{-\frac{2 r \beta}{a_0}} - \frac{e^2}{4 \pi \epsilon_0}r e^{-r(\mu+2 \frac{\beta}{a_0})} - \frac{\hbar^2 \beta^2}{2m a_0^2} r^2 e^{-\frac{2 r \beta}{a_0}}\right) dr          \\
+                                                             & = \frac{4\beta^3}{a_0^3}\left[ \frac{\hbar^2 \beta}{m a_0}
+            \left(- r\frac{a_0}{2 \beta} - \left(\frac{a_0}{2 \beta}\right)^2 \right) e^{-\frac{2 r \beta}{a_0}} \right]_0^\infty
+        \\ &
+        - \frac{4\beta^3}{a_0^3}\left[ \frac{e^2}{4 \pi \epsilon_0} \left(-r \frac{1}{\mu+2\frac{\beta}{a_0}} - \left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^2\right)e^{-r(\mu+2\frac{\beta}{a_0})} \right]_0^\infty                                                                                                     \\ &
+        - \frac{\beta^3}{\pi a_0^3}\left[ \frac{\hbar^2 \beta^2}{2m a_0^2} \left(- r^2 \frac{a_0}{2 \beta} -  2r \left(\frac{a_0}{2 \beta} \right)^2 - 2 \left(\frac{a_0}{2 \beta}\right)^3 \right) e^{-\frac{2 r \beta}{a_0}} \right]_0^\infty                                                                           \\
+                                                             & = \frac{4\beta^3}{a_0^3} \left[\frac{\hbar^2 \beta}{m a_0}\left(\frac{a_0}{2 \beta}\right)^2 - \frac{e^2}{4 \pi \epsilon_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^2 - 2 \frac{\hbar^2 \beta^2}{2m a_0^2} \left(\frac{a_0}{2 \beta}\right)^3 \right] \\
+                                                             & = \frac{4\beta^3}{a_0^3} \left[\frac{\hbar^2 a_0}{4m \beta} - \frac{e^2}{4 \pi \epsilon_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^2 - \frac{\hbar^2 a_0}{8m \beta} \right]                                                                           \\
+                                                             & = \frac{\beta^3}{a_0^3} \left[\frac{\hbar^2 a_0}{2m \beta} - \frac{e^2}{\pi \epsilon_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^2 \right]
+    \end{split}
+\end{equation*}
+
+\begin{equation*}
+    \begin{split}
+        \frac{d\left\langle \psi \left| H \right| \psi\right\rangle}{d\beta} & =
+        3 \frac{\beta^2}{a_0^3} \left[\frac{\hbar^2 a_0}{2m \beta} - \frac{e^2}{\pi \epsilon_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^2 \right]
+        + \frac{\beta^3}{a_0^3} \left[-\frac{\hbar^2 a_0}{2m \beta^2} + 4 \frac{e^2}{\pi \epsilon_0 a_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^3 \right]                                                                                                                                                                                            \\
+                                                                             & = \frac{3 \hbar^2 \beta}{2m a_0^2} - 3 \frac{\beta^2}{a_0^3} \frac{e^2}{\pi \epsilon_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^2 - \frac{\hbar^2 \beta}{2m a_0^2} + 4 \frac{\beta^3}{a_0^4} \frac{e^2}{\pi \epsilon_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^3 \\
+        =                                                                    & \frac{\hbar^2 \beta}{m a_0^2} - 3 \frac{\beta^2}{a_0^3} \frac{e^2}{\pi \epsilon_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^2 + 4 \frac{\beta^3}{a_0^4} \frac{e^2}{\pi \epsilon_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^3                                       \\
+    \end{split}
+\end{equation*}
+
+\[\because \frac{e^2}{\pi \epsilon_0} = \frac{4 \hbar^2}{m a_0}\]
+
+\begin{equation*}
+    \begin{split}
+        \frac{d\left\langle \psi \left| H \right| \psi\right\rangle}{d\beta} & =
+        \frac{\hbar^2 \beta}{m a_0^2} - 3 \frac{\beta^2}{a_0^3} \frac{4 \hbar^2}{m a_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^2 + 4 \frac{\beta^3}{a_0^4} \frac{4 \hbar^2}{m a_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^3                                                                \\
+                                                                             & = \frac{\hbar^2 \beta}{m a_0^2} - 12 \frac{\beta^2}{a_0^4} \frac{\hbar^2}{m}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^2 + 16 \frac{\beta^3}{a_0^5} \frac{\hbar^2}{m}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^3 \\
+                                                                             & = \frac{\hbar^2}{m a_0^2} \left[\beta - 12 \frac{\beta^2}{a_0^2}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^2 + 16 \frac{\beta^3}{a_0^3}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^3 \right]                       \\
+                                                                             & = \frac{\hbar^2}{m a_0^2} \left[ \beta - 12 \frac{\beta^2}{a_0^2({\mu+2\frac{\beta}{a_0}})^2} + 16 \frac{\beta^3}{a_0^3({\mu+2\frac{\beta}{a_0}})^3} \right]                                                            \\
+                                                                             & = 0
+    \end{split}
+\end{equation*}
+
+\begin{equation*}
+    \begin{split}
+         &
+        \left[ \beta - 12 \frac{\beta^2}{a_0^2({\mu+2\frac{\beta}{a_0}})^2} + 16 \frac{\beta^3}{a_0^3({\mu+2\frac{\beta}{a_0}})^3} \right]                                                   \\
+         & =
+        \left[ \beta -  \frac{3}{(\frac{a_0\mu}{2\beta}+1)^2} + \frac{2}{(\frac{a_0\mu}{2\beta}+1)^3} \right]                                                                                \\
+         & =
+        \left[ \beta - 3 \left(1- \frac{a_0\mu}{\beta} + 3 (\frac{a_0\mu}{\beta})^2 + \cdots \right) + \left(2- 3\frac{a_0\mu}{\beta} + 12 (\frac{a_0\mu}{\beta})^2 + \cdots \right) \right] \\
+         & =
+        \left[ \beta - 1 + 3 (\frac{a_0\mu}{\beta})^2 \right]
+    \end{split}
+\end{equation*}
+
+\[
+    \beta^3 - \beta^2 + 3 (a_0\mu)^2 = 0
+\]
+
+Using mathematica we get one real solution and two imaginaries:
+
+The real solution:
+
+\[
+    \beta = \frac{\left(-81 a_0^2 \mu^2 + \sqrt{\left(2 - 81 a_0^2 \mu^2\right)^2 - 4} + 2\right)^{\frac{1}{3}}}{3 \cdot 2^{\frac{1}{3}}} + \frac{2^{\frac{1}{3}}}{3 \left(-81 a_0^2 \mu^2 + \sqrt{\left(2 - 81 a_0^2 \mu^2\right)^2 - 4} + 2\right)^{\frac{1}{3}}} + \frac{1}{3}
+\]
+
+\[
+    \beta \approx 1 - 3 (a_0\mu)^2
+\]
+
+\begin{equation*}
+    \begin{split}
+        {\left\langle \psi \left| H \right| \psi \right\rangle}_{\min}
+         & = \frac{\beta^3}{a_0^3} \left[\frac{\hbar^2 a_0}{2m \beta} - \frac{e^2}{\pi \epsilon_0}\left(\frac{1}{\mu+2\frac{\beta}{a_0}}\right)^2 \right]                                     \\
+         & = \frac{(1 - 3 (a_0\mu)^2)^3}{a_0^3} \left[\frac{\hbar^2 a_0}{2m (1 - 3 (a_0\mu)^2)} - \frac{4 \hbar^2}{m a_0}\left(\frac{1}{\mu+2\frac{(1 - 3 (a_0\mu)^2)}{a_0}}\right)^2 \right] \\
+         & = \frac{(1 - 3 (a_0\mu)^2)^3}{a_0^3} \left[\frac{\hbar^2 a_0}{2m (1 - 3 (a_0\mu)^2)} - \frac{4 \hbar^2 a_0}{m}\left(\frac{1}{\mu a_0+2(1 - 3 (a_0\mu)^2)}\right)^2 \right]         \\
+         & = \frac{\hbar^2}{2m a_0^2}(1 - 3 (a_0\mu)^2)^2 - \frac{4\hbar^2 }{m a_0^2}(1 - 3 (a_0\mu)^2)^3(\mu a_0+2(1 - 3 (a_0\mu)^2))^{-2}                                                   \\
+         & = \frac{\hbar^2}{m a_0^2} \left[\frac{1}{2}(1 - 3 (a_0\mu)^2)^2 - 4(1 - 3 (a_0\mu)^2)^3(\mu a_0+2(1 - 3 (a_0\mu)^2))^{-2} \right]                                                  \\
+         & \approx \frac{\hbar^2}{\mu a_0^2} \left[\frac{1}{2}(1 - 6 (a_0\mu)^2) - 4(1 - 9 (a_0\mu)^2)(\frac{1}{4}-\frac{\mu a_0}{4} +\frac{27 (\mu a_0)^2}{16}) \right]                      \\
+         & \approx \frac{\hbar^2}{\mu a_0^2} \left[\frac{1}{2}(1 - 6 (a_0\mu)^2) - 4(\frac{1}{4}-\frac{\mu a_0}{4} +\frac{27 (\mu a_0)^2}{16} -\frac{9}{4}(a_0\mu)^2) \right]                 \\
+         & = \frac{\hbar^2}{\mu a_0^2} \left[-\frac{1}{2} + \mu a_0 - \frac{3}{4}(\mu a_0)^2 \right]
+    \end{split}
+\end{equation*}
+
+\newpage
+
+\section{P3}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+\[
+    u = x + t, \quad v = x - t
+\]
+ 
+\[
+    s' = \sqrt{2}s
+\]
+
+\begin{enumerate}
+    \item
+          \[
+              \Lambda = \begin{pmatrix}
+                  1 & 1  \\
+                  1 & -1 \\
+              \end{pmatrix}
+              =\underbrace{\sqrt{2} \begin{pmatrix}
+                      1 & 0 \\
+                      0 & 1 \\
+                  \end{pmatrix}}_{\text{scale}} \underbrace{\frac{1}{\sqrt{2}}\begin{pmatrix}
+                      1 & 1  \\
+                      1 & -1 \\
+                  \end{pmatrix}}_{\text{reflection}}
+          \]
+    \item
+          Since $\Lambda$ is just reflection and scaling therefore u is still perpendicular ($\Lambda$ is orthogonal)
+    \item
+          \[
+              df = dx \frac{\partial f}{\partial x}  + dt \frac{\partial f}{\partial t}
+          \]
+
+          \[
+              x = \frac{u + v}{2},\quad t = \frac{u - v}{2}
+          \]
+
+          \[
+              dx = du \frac{\partial x}{\partial u}  + dv \frac{\partial x}{\partial v}
+          \]
+
+          \[
+              dx = \frac{du + dv}{2}
+          \]
+
+          And similarly,
+
+          \[
+              dt = \frac{du - dv}{2}
+          \]
+
+          \[
+              \frac{\partial f}{\partial x}
+              = \frac{\partial f}{\partial u} \frac{\partial u}{\partial x} + \frac{\partial f}{\partial v} \frac{\partial v}{\partial x}
+              = \frac{\partial f}{\partial u} + \frac{\partial f}{\partial v}
+          \]
+
+          \[
+              \frac{\partial f}{\partial t}
+              = \frac{\partial f}{\partial u} \frac{\partial u}{\partial t} + \frac{\partial f}{\partial v} \frac{\partial v}{\partial t}
+              = \frac{\partial f}{\partial u} - \frac{\partial f}{\partial v}
+          \]
+
+          \[
+              df = \frac{du + dv}{2} (\frac{\partial f}{\partial u} + \frac{\partial f}{\partial v})  + \frac{du - dv}{2} (\frac{\partial f}{\partial u} - \frac{\partial f}{\partial v})
+          \]
+
+          \[
+              = du\frac{\partial f}{\partial u} + dv\frac{\partial f}{\partial v}
+          \]
+    \item
+          \[
+              u = x + iy = z,\quad v = x - iy = \bar{z}
+          \]
+
+          \[
+              df = dz \frac{\partial f}{\partial z} + d\bar{z} \frac{\partial f}{\partial \bar{z}}
+          \]
+\end{enumerate}
+
+\newpage
+
+\section{P4}
+
+\[
+    \nabla^2 \phi = \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} = 0
+\]
+
+\[
+    \frac{\partial \phi}{\partial x} = \frac{\partial \phi}{\partial z} \frac{\partial z}{\partial x} + \frac{\partial \phi}{\partial \bar{z}} \frac{\partial \bar{z}}{\partial x}
+    = \frac{\partial \phi}{\partial z} + \frac{\partial \phi}{\partial \bar{z}}
+\]
+
+\[
+    \frac{\partial^2 \phi}{\partial x^2}
+    = \frac{\partial (\frac{\partial \phi}{\partial z} + \frac{\partial \phi}{\partial \bar{z}})}{\partial z} + \frac{\partial (\frac{\partial \phi}{\partial z} + \frac{\partial \phi}{\partial \bar{z}})}{\partial \bar{z}}
+    = \frac{\partial^2 \phi}{\partial z^2} + 2 \frac{\partial^2 \phi}{\partial z \partial \bar{z}} + \frac{\partial^2 \phi}{\partial \bar{z}^2}
+\]
+
+\[
+    \frac{\partial \phi}{\partial y} = \frac{\partial \phi}{\partial z} \frac{\partial z}{\partial y} + \frac{\partial \phi}{\partial \bar{z}} \frac{\partial \bar{z}}{\partial y}
+    = i(\frac{\partial \phi}{\partial z} - \frac{\partial \phi}{\partial \bar{z}})
+\]
+
+\[
+    \frac{\partial^2 \phi}{\partial y^2}
+    = \frac{\partial (\frac{\partial \phi}{\partial z} - \frac{\partial \phi}{\partial \bar{z}})}{\partial \bar{z}}
+    + \frac{\partial (\frac{\partial \phi}{\partial \bar{z}} - \frac{\partial \phi}{\partial z})}{\partial z}
+    = -\frac{\partial^2 \phi}{\partial z^2} + 2 \frac{\partial^2 \phi}{\partial z \partial \bar{z}} - \frac{\partial^2 \phi}{\partial \bar{z}^2}
+\]
+
+\[
+    \nabla^2 \phi = 4 \frac{\partial^2 \phi}{\partial z \partial \bar{z}}
+\]
+
+\[
+    \nabla^2 \phi = 0 \rightarrow \frac{\partial^2 \phi}{\partial z \partial \bar{z}} = 0
+\]
+
+\[
+    \frac{\partial\phi}{\partial z} = f'(z)
+\]
+
+\[
+    \phi = \int f'(z) dz
+\]
+
+\[
+    \phi = f(z) + g(\bar{z})
+\]
+
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{references}
+\nocite{arfken2013mathematical}
+\nocite{El-Deeb_PEU-455_Assignments}
+
+\end{document}
