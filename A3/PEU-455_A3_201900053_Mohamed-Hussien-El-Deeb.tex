@@ -1,0 +1,430 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1.25in]{geometry}
+\usepackage[svgnames,x11names,table]{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage[thicklines]{cancel}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=RoyalBlue4,
+    urlcolor=RoyalBlue4,
+}
+
+\title{PEU 455 Assignment 3}
+\author{Mohamed Hussien El-Deeb (201900052)}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newcommand{\Lagr}{\mathcal{L}}
+\renewcommand{\labelenumi}{\textbf{(\alph{enumi})}}
+\newcommand{\mbeq}{\overset{!}{=}}
+
+\newpage
+\section{11.2.3}
+
+\[
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y},
+    \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+\]
+
+\begin{enumerate}
+    \item \[
+              u(x, y) = x^3 - 3xy^2
+          \]
+          \[
+              \frac{\partial u}{\partial x} = 3x^2-3y^2 = \frac{\partial v}{\partial y}
+          \]
+          \[
+              v = \int 3x^2-3y^2\, dy = 3yx^2-y^3 + f(x) \tag{1}\label{eq.1}
+          \]
+          \[
+              \frac{\partial u}{\partial y} = - 6xy = -\frac{\partial v}{\partial x}
+          \]
+          \[
+              v = 3x^2y + g(y) \tag{2}\label{eq.2}
+          \]
+          from eq.\ref{eq.1} and eq.\ref{eq.2}
+          \[
+              v = 3x^2y - y^3
+          \]
+    \item \[
+              v(x, y) = e^{-y}\sin x
+          \]
+          \[
+              \frac{\partial v}{\partial y} = -e^{-y}\sin x = \frac{\partial u}{\partial x}
+          \]
+          \[
+              u = e^{-y}\cos x + f(y) \tag{3}\label{eq.3}
+          \]
+          \[
+              \frac{\partial v}{\partial x} = e^{-y}\cos x = - \frac{\partial u}{\partial y}
+          \]
+          \[
+              u = e^{-y}\cos x + g(x) \tag{4}\label{eq.4}
+          \]
+          from eq.\ref{eq.3} and eq.\ref{eq.4}
+          \[
+              u = e^{-y}\cos x
+          \]
+\end{enumerate}
+
+\newpage
+\section{11.2.4}
+
+From the fact $w$ is analytical,
+
+\[
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y},
+    \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+\]
+
+From the fact $w^*$ is analytical,
+
+\[
+    \frac{\partial u}{\partial x} = -\frac{\partial v}{\partial y},
+    \quad \frac{\partial u}{\partial y} = \frac{\partial v}{\partial x}
+\]
+
+We can see that,
+
+\[
+    \frac{\partial u}{\partial x} = - \frac{\partial u}{\partial x} = 0,\quad
+    \frac{\partial u}{\partial y} = - \frac{\partial u}{\partial y} = 0,\quad
+    \frac{\partial v}{\partial x} = - \frac{\partial v}{\partial x} = 0,\quad
+    \frac{\partial v}{\partial y} = - \frac{\partial v}{\partial y} = 0,\quad
+\]
+
+\[
+    \therefore u = c_1,\quad v = c_2
+\]
+
+\newpage
+\section{11.2.7}
+
+\[
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y},
+    \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+\]
+
+\[
+    u = R\cos{\Theta},\quad v = R\sin{\Theta}
+\]
+
+\[
+    \frac{\partial u}{\partial R} = \cos{\Theta},\quad
+    \frac{\partial u}{\partial \Theta} = -R\sin{\Theta},\quad
+    \frac{\partial v}{\partial R} = \sin{\Theta},\quad
+    \frac{\partial v}{\partial \Theta} = R\cos{\Theta}
+\]
+
+\[
+    \frac{\partial u}{\partial x} = \frac{\partial u}{\partial R}\frac{\partial R}{\partial x} + \frac{\partial u}{\partial \Theta}\frac{\partial \Theta}{\partial x}
+\]
+\[
+    \frac{\partial u}{\partial x} = \cos{\Theta}\frac{\partial R}{\partial x} - R\sin{\Theta}\frac{\partial \Theta}{\partial x}
+\]
+
+\[
+    \frac{\partial u}{\partial y} = \frac{\partial u}{\partial R}\frac{\partial R}{\partial y} + \frac{\partial u}{\partial \Theta}\frac{\partial \Theta}{\partial y}
+\]
+\[
+    \frac{\partial u}{\partial y} = \cos{\Theta}\frac{\partial R}{\partial y} - R\sin{\Theta}\frac{\partial \Theta}{\partial y}
+\]
+
+\[
+    \frac{\partial v}{\partial x} = \frac{\partial v}{\partial R}\frac{\partial R}{\partial x} + \frac{\partial v}{\partial \Theta}\frac{\partial \Theta}{\partial x}
+\]
+\[
+    \frac{\partial v}{\partial x} = \sin{\Theta}\frac{\partial R}{\partial x} + R\cos{\Theta}\frac{\partial \Theta}{\partial x}
+\]
+
+\[
+    \frac{\partial v}{\partial y} = \frac{\partial v}{\partial R}\frac{\partial R}{\partial y} + \frac{\partial v}{\partial \Theta}\frac{\partial \Theta}{\partial y}
+\]
+\[
+    \frac{\partial v}{\partial y} = \sin{\Theta}\frac{\partial R}{\partial y} + R\cos{\Theta}\frac{\partial \Theta}{\partial y}
+\]
+
+From first relation,
+
+\[
+    \cos{\Theta}\frac{\partial R}{\partial x} - R\sin{\Theta}\frac{\partial \Theta}{\partial x} = \sin{\Theta}\frac{\partial R}{\partial y} + R\cos{\Theta}\frac{\partial \Theta}{\partial y}
+\]
+
+\[
+    \cos{\Theta}(\frac{\partial R}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial R}{\partial \theta}\frac{\partial \theta}{\partial x})
+    - R\sin{\Theta}(\frac{\partial \Theta}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial \Theta}{\partial \theta}\frac{\partial \theta}{\partial x})
+\]
+\[
+    = \sin{\Theta}(\frac{\partial R}{\partial r}\frac{\partial r}{\partial y} + \frac{\partial R}{\partial \theta}\frac{\partial \theta}{\partial y})
+    + R\cos{\Theta}(\frac{\partial \Theta}{\partial r}\frac{\partial r}{\partial y} + \frac{\partial \Theta}{\partial \theta}\frac{\partial \theta}{\partial y})
+\]
+
+\[
+    \cos{\Theta}(\frac{\partial R}{\partial r}\cos(\theta) - \frac{\partial R}{\partial \theta}\frac{\sin \theta}{r})
+    - R\sin{\Theta}(\frac{\partial \Theta}{\partial r}\cos(\theta) - \frac{\partial \Theta}{\partial \theta}\frac{\sin \theta}{r})
+\]
+\[
+    = \sin{\Theta}(\frac{\partial R}{\partial r}\sin(\theta) + \frac{\partial R}{\partial \theta}\frac{\cos \theta}{r})
+    + R\cos{\Theta}(\frac{\partial \Theta}{\partial r}\sin(\theta) + \frac{\partial \Theta}{\partial \theta}\frac{\cos \theta}{r})
+\]
+
+\[
+    (\cos(\Theta)\cos(\theta) - \sin(\Theta)\sin(\theta))\frac{\partial R}{\partial r}
+    - \frac{1}{r}(\sin(\Theta)\cos(\theta) + \sin(\theta)\cos(\Theta))\frac{\partial R}{\partial \theta}
+\]
+\[
+    = \frac{R}{r}(\cos(\Theta)\cos(\theta) - \sin(\Theta)\sin(\theta))\frac{\partial \Theta}{\partial \theta}
+    + R(\sin(\Theta)\cos(\theta) + \sin(\theta)\cos(\Theta))\frac{\partial \Theta}{\partial r}
+\]
+
+\[
+    (\cos(\Theta)\cos(\theta) - \sin(\Theta)\sin(\theta))
+    (\frac{\partial R}{\partial r} - \frac{R}{r}\frac{\partial \Theta}{\partial \theta})
+    - (\sin(\Theta)\cos(\theta) + \sin(\theta)\cos(\Theta))(\frac{1}{r}\frac{\partial R}{\partial \theta} + R\frac{\partial \Theta}{\partial r})
+    = 0 \tag{5}\label{eq.5}
+\]
+
+From second relation,
+
+\[
+    \cos \Theta (\frac{\partial R}{\partial r}\frac{\partial r}{\partial y} + \frac{\partial R}{\partial \theta}\frac{\partial \theta}{\partial y})
+    - R \sin \Theta (\frac{\partial \Theta}{\partial r}\frac{\partial r}{\partial y} + \frac{\partial \Theta}{\partial \theta}\frac{\partial \theta}{\partial y})
+\]
+\[
+    = -\sin \Theta (\frac{\partial R}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial R}{\partial \theta}\frac{\partial \theta}{\partial x})
+    - R \cos \Theta (\frac{\partial \Theta}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial \Theta}{\partial \theta}\frac{\partial \theta}{\partial x})
+\]
+
+\[
+    \cos \Theta (\frac{\partial R}{\partial r}\sin(\theta) + \frac{\partial R}{\partial \theta}\frac{\cos \theta}{r})
+    - R \sin \Theta (\frac{\partial \Theta}{\partial r}\sin(\theta) + \frac{\partial \Theta}{\partial \theta}\frac{\cos \theta}{r})
+\]
+\[
+    = -\sin \Theta (\frac{\partial R}{\partial r}\cos(\theta) - \frac{\partial R}{\partial \theta}\frac{\sin \theta}{r})
+    - R \cos \Theta (\frac{\partial \Theta}{\partial r}\cos(\theta) - \frac{\partial \Theta}{\partial \theta}\frac{\sin \theta}{r})
+\]
+
+\[
+    (\sin(\theta)\cos(\Theta) + \sin(\Theta)\cos(\theta))
+    (\frac{\partial R}{\partial r} - \frac{R}{r}\frac{\partial \Theta}{\partial \theta})
+    + (\cos(\Theta)\cos(\theta) - \sin(\theta)\sin(\Theta))(\frac{1}{r}\frac{\partial R}{\partial \theta} + R\frac{\partial \Theta}{\partial r})
+    = 0 \tag{6}\label{eq.6}
+\]
+
+\begin{enumerate}
+    \item
+          \[
+              (\cos(\Theta)\cos(\theta) - \sin(\theta)\sin(\Theta))\text{eq.}\ref{eq.5}+(\sin(\Theta)\cos(\theta) + \sin(\theta)\cos(\Theta))\text{eq.}\ref{eq.6}
+          \]
+
+          \[
+              ({(\sin(\theta)\cos(\Theta) + \sin(\Theta)\cos(\theta))}^2 + {(\cos(\Theta)\cos(\theta) - \sin(\Theta)\sin(\theta))}^2)
+              (\frac{\partial R}{\partial r} - \frac{R}{r}\frac{\partial \Theta}{\partial \theta})
+              = 0
+          \]
+
+          Since,
+
+          \[
+              \sin(\theta)\cos(\Theta) + \sin(\Theta)\cos(\theta) = \sin(\theta + \Theta)
+          \]
+
+          \[
+              \cos(\Theta)\cos(\theta) - \sin(\Theta)\sin(\theta) = \cos(\theta + \Theta)
+          \]
+
+          \[
+              {(\sin(\theta)\cos(\Theta) + \sin(\Theta)\cos(\theta))}^2 + {(\cos(\Theta)\cos(\theta) - \sin(\Theta)\sin(\theta))}^2 = 1
+          \]
+
+          \[
+              \frac{\partial R}{\partial r} = \frac{R}{r}\frac{\partial \Theta}{\partial \theta}\tag{7}\label{eq.7}
+          \]
+    \item
+          Substituting angle addition identity and eq.\ref{eq.7} in eq.\ref{eq.6} we get,
+
+          \[
+              -\cos(\Theta + \theta)(\frac{1}{r}\frac{\partial R}{\partial \theta} + R\frac{\partial \Theta}{\partial r}) = 0
+          \]
+
+          Since this equation holds for all $\theta$ and $\theta$ then,
+
+          \[
+              \frac{1}{r}\frac{\partial R}{\partial \theta} \mbeq - R\frac{\partial \Theta}{\partial r}
+          \]
+
+\end{enumerate}
+
+\newpage
+\section{11.2.8}
+
+\[
+    \frac{\partial R}{\partial r} = \frac{R}{r}\frac{\partial \Theta}{\partial \theta}, \quad
+    \frac{1}{r}\frac{\partial R}{\partial \theta} = - R\frac{\partial \Theta}{\partial r}
+\]
+
+\[
+    \frac{\partial \Theta}{\partial \theta} = \frac{r}{R}\frac{\partial R}{\partial r}
+\]
+
+\begin{equation}
+    \begin{split}
+        \frac{1}{r^2}\frac{\partial^2 \Theta}{\partial \theta^2}
+         & = \frac{1}{r} \frac{\partial }{\partial \theta}(\frac{1}{R}\frac{\partial R}{\partial r})                                                    \\
+         & = \frac{1}{Rr}(\frac{\partial^2 R}{\partial \theta \partial r} - \frac{1}{R}\frac{\partial R}{\partial \theta}\frac{\partial R}{\partial r}) \\
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial^2 \Theta}{\partial r^2}
+         & =\frac{\partial }{\partial r}(\frac{\partial \Theta}{\partial r})                                                                                              \\
+         & = -\frac{\partial }{\partial r}(\frac{1}{Rr}\frac{\partial R}{\partial \theta})                                                                                \\
+         & = -\frac{\partial }{\partial r}(\frac{1}{Rr})\frac{\partial R}{\partial \theta} - \frac{1}{Rr}\frac{\partial }{\partial r}(\frac{\partial R}{\partial \theta}) \\
+         & = \frac{1}{Rr}(\frac{1}{R}\frac{\partial R}{\partial r} \frac{\partial R}{\partial \theta}
+        + \frac{1}{r}\frac{\partial R}{\partial \theta}
+        - \frac{\partial^2 R}{\partial r \partial \theta})
+    \end{split}
+\end{equation}
+
+\[
+    \frac{1}{r}\frac{\partial \Theta}{\partial r} = -\frac{1}{Rr^2}\frac{\partial R}{\partial \theta}
+    \tag{3}
+\]
+
+
+\[
+    \frac{\partial^2 \Theta}{\partial r^2} + \frac{1}{r}\frac{\partial \Theta}{\partial r} + \frac{1}{r^2}\frac{\partial^2 \Theta}{\partial \theta^2} = 0
+\]
+
+
+\newpage
+\section{11.2.11}
+
+\begin{enumerate}
+    \item
+
+          \[
+              \frac{df}{dz} = \frac{\partial f}{\partial x} = \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x} = V_x - i \frac{\partial u}{\partial y} = V_x - i V_y
+          \]
+
+    \item
+
+          Since the Laplacian of an analytic function of z is zero
+
+          \[
+              \nabla . V =  \nabla . \nabla u = \nabla^2 u = 0
+          \]
+
+    \item
+
+          From the curl of gradient identity
+
+          \[
+              \nabla \times \nabla u = 0
+          \]
+
+\end{enumerate}
+
+\newpage
+\section{11.3.6}
+
+\[
+    z^* = x-iy
+\]
+
+For path 1, \\
+Segment 1: \(dz = dx, \quad x_1 = 0, \quad x_2 = 1, \quad y = 0\) \\
+Segment 2: \(dz = idy, \quad y_1 = 0, \quad y_2 = 1, \quad x = 1\)
+
+\[
+    \int_0^{1+i} z^* \, dz= \int_0^{1} xdx + i\int_0^{1} (1-iy)dy
+    = 1 + i
+\]
+
+For path 2, \\
+Segment 1: \(dz = idy, \quad y_1 = 0, \quad y_2 = 1, \quad x = 0\) \\
+Segment 2: \(dz = dx, \quad x_1 = 0, \quad x_2 = 1, \quad y = 1\)
+
+\[
+    \int_0^{1+i} z^* \, dz = \int_0^{1} y dy + \int_0^{1} (x - i)dx
+    = 1 - i
+\]
+
+
+\newpage
+\section{11.3.7}
+
+\[
+    \int_C \frac{1}{z(z+1)}dz
+\]
+
+\[
+    \int_C \frac{1}{z} dz - \int_C \frac{1}{z+1} dz = 2 \pi i - 2 \pi i = 0
+\]
+
+\newpage
+\section{11.4.1}
+
+\[
+    \frac{1}{2\pi i}\oint z^{m-n-1} \, dz
+\]
+
+for m = n,
+
+\[
+    \frac{1}{2\pi i}\oint z^{-1} \, dz = \frac{1}{2\pi i} 2\pi i = 1
+\]
+
+for $m \neq n$ the exponent won't be $-1$ so,
+
+\[
+    \oint z^{m-n-1} \, dz = 0
+\]
+
+\[
+    \frac{1}{2\pi i}\oint z^{m-n-1} \, dz = \delta_{mn}
+\]
+
+\newpage
+\section{11.4.6}
+
+The contours encapsulate the singularity point of $z=0$
+
+\[
+    f(z) = e^{iz}
+\]
+
+\[
+    n = 3
+\]
+
+\[
+    \oint \frac{f(z)}{z^n} \, dz = \frac{2 \pi i}{(n-1)!}f^{(n-1)}(0)
+\]
+
+\[
+    \oint \frac{e^{iz}}{z^3} \, dz = -\pi i
+\]
+
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{references}
+\nocite{arfken2013mathematical}
+\nocite{El-Deeb_PEU-455_Assignments}
+
+\end{document}
